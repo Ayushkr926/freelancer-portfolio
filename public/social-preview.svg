@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="glow" cx="80%" cy="35%" r="62%">
+      <stop offset="0" stop-color="#9b8cff" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#08090d" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#fff" stroke-opacity=".05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#08090d"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <text x="88" y="115" fill="#c5ff4a" font-family="Arial,sans-serif" font-size="24" font-weight="700">AK.</text>
+  <text x="88" y="275" fill="#f2f2ef" font-family="Arial,sans-serif" font-size="65" font-weight="700" letter-spacing="-3">I turn business ideas into</text>
+  <text x="88" y="357" fill="#f2f2ef" font-family="Arial,sans-serif" font-size="65" font-weight="700" letter-spacing="-3">digital experiences that</text>
+  <text x="88" y="439" fill="#c5ff4a" font-family="Arial,sans-serif" font-size="65" font-weight="700" letter-spacing="-3">work.</text>
+  <text x="90" y="524" fill="#a1a1aa" font-family="Arial,sans-serif" font-size="21">AYUSH KUMAR  ·  FREELANCE APP &amp; WEB DEVELOPER</text>
+  <circle cx="1073" cy="514" r="10" fill="#c5ff4a"/>
+</svg>
