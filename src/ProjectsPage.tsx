@@ -4,8 +4,12 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { ProjectDialog, ProjectVisual } from './ProjectShowcase'
 import { contactEmail, projects, type Project } from './portfolioData'
 
+const currentYear = new Date().getFullYear()
 const filters = ['All projects', 'Mobile apps', 'Web', 'Concepts'] as const
 type ProjectFilter = (typeof filters)[number]
+
+const isWebProject = (project: Project) =>
+  project.visual !== 'marketplace' && project.visual !== 'tracking'
 
 export default function ProjectsPage() {
   const [filter, setFilter] = useState<ProjectFilter>('All projects')
@@ -29,8 +33,8 @@ export default function ProjectsPage() {
 
   const filteredProjects = useMemo(() => projects.filter((project) => {
     if (filter === 'Concepts') return project.concept
-    if (filter === 'Web') return project.visual === 'website'
-    if (filter === 'Mobile apps') return project.visual !== 'website'
+    if (filter === 'Web') return isWebProject(project)
+    if (filter === 'Mobile apps') return !isWebProject(project)
     return true
   }), [filter])
 
@@ -53,7 +57,7 @@ export default function ProjectsPage() {
           <div className="projects-hero-copy">
             <span className="eyebrow"><i /> PROJECT INDEX&nbsp; / &nbsp;{String(projects.length).padStart(2, '0')} PROJECTS</span>
             <h1>A closer look<br />at the <em>work.</em></h1>
-            <p>Production app development, thoughtful product concepts, and practical digital experiences — built around real business needs.</p>
+            <p>Production app development alongside restaurant, coffee shop, and pet store website concepts built around real business needs.</p>
             <a href="#project-library" className="projects-scroll">Explore the projects <ArrowDown size={14} /></a>
           </div>
           <div className="projects-hero-art" aria-hidden="true">
@@ -90,8 +94,8 @@ export default function ProjectsPage() {
                   : item === 'Concepts'
                     ? projects.filter((project) => project.concept).length
                     : item === 'Web'
-                      ? projects.filter((project) => project.visual === 'website').length
-                      : projects.filter((project) => project.visual !== 'website').length}</span>
+                      ? projects.filter(isWebProject).length
+                      : projects.filter((project) => !isWebProject(project)).length}</span>
               </button>
             ))}
             <span className="filter-result">{String(filteredProjects.length).padStart(2, '0')} RESULTS</span>
@@ -156,7 +160,7 @@ export default function ProjectsPage() {
 
       <footer className="projects-footer">
         <a className="wordmark" href="/">AK<span>.</span></a>
-        <span>© {new Date().getFullYear()} Ayush Kumar</span>
+        <span>© {currentYear} Ayush Kumar</span>
         <a href="/">BACK TO PORTFOLIO ↑</a>
       </footer>
 

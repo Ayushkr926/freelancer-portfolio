@@ -4,17 +4,49 @@ import { useEffect, useRef } from 'react'
 import type { Project } from './portfolioData'
 
 export function ProjectVisual({ type }: { type: Project['visual'] }) {
-  if (type === 'website') {
+  if (type === 'website' || type === 'restaurant' || type === 'cafe' || type === 'pet-store') {
+    const websiteConcepts = {
+      website: {
+        brand: 'FIELDWORK',
+        label: 'LOCAL SERVICE · MADE SIMPLE',
+        headline: <>Make room<br />for better.</>,
+        description: 'A considered service experience, from first click to finished project.',
+        action: 'Explore services',
+      },
+      restaurant: {
+        brand: 'SAFFRON TABLE',
+        label: 'SEASONAL · LOCAL · MADE WITH CARE',
+        headline: <>A seat at<br />our table.</>,
+        description: 'Thoughtful plates, warm hospitality, and evenings worth sharing.',
+        action: 'View the menu',
+      },
+      cafe: {
+        brand: 'MORROW COFFEE',
+        label: 'YOUR NEIGHBORHOOD COFFEE STOP',
+        headline: <>A little<br />more slow.</>,
+        description: 'Good coffee, fresh pastries, and a cozy place to stay awhile.',
+        action: 'Find your cup',
+      },
+      'pet-store': {
+        brand: 'PAW & CO.',
+        label: 'GOOD THINGS FOR GOOD PETS',
+        headline: <>For the love<br />of paws.</>,
+        description: 'Everyday essentials and little joys for the best members of your family.',
+        action: 'Shop favorites',
+      },
+    } as const
+    const concept = websiteConcepts[type]
+
     return (
-      <div className="visual visual-website" aria-label="Website concept preview">
+      <div className={`visual visual-website visual-${type}`} aria-label={`${concept.brand} website concept preview`}>
         <div className="website-window">
-          <div className="window-bar"><i /><i /><i /><span>north / studio</span></div>
+          <div className="window-bar"><i /><i /><i /><span>{concept.brand.toLowerCase()}</span></div>
           <div className="website-content">
-            <div className="website-nav"><b>FIELDWORK</b><span>Services&nbsp;&nbsp; About&nbsp;&nbsp; Contact</span></div>
-            <span className="tiny-label">LOCAL SERVICE · MADE SIMPLE</span>
-            <strong>Make room<br />for better.</strong>
-            <p>A considered service experience, from first click to finished project.</p>
-            <span className="mini-cta">Explore services <ArrowRight size={12} /></span>
+            <div className="website-nav"><b>{concept.brand}</b><span>Menu&nbsp;&nbsp; Our story&nbsp;&nbsp; Visit</span></div>
+            <span className="tiny-label">{concept.label}</span>
+            <strong>{concept.headline}</strong>
+            <p>{concept.description}</p>
+            <span className="mini-cta">{concept.action} <ArrowRight size={12} /></span>
             <div className="website-orb" />
           </div>
         </div>
@@ -37,23 +69,6 @@ export function ProjectVisual({ type }: { type: Project['visual'] }) {
           <div className="phone-tabs">⌂　⌕　▦　◉</div>
         </div>
         <div className="scan-float"><span>⌗</span><b>Scan to identify</b><small>QR asset lookup</small></div>
-      </div>
-    )
-  }
-
-  if (type === 'booking') {
-    return (
-      <div className="visual visual-booking" aria-label="Service booking app concept preview">
-        <div className="booking-phone">
-          <div className="phone-notch" />
-          <div className="phone-top"><span>9:41</span><span>•••</span></div>
-          <div className="booking-greeting"><small>MONDAY, OCTOBER 21</small><b>Your day,<br />beautifully planned.</b></div>
-          <div className="booking-card"><span>UP NEXT</span><b>Home refresh</b><small>Today · 2:30 PM</small><div className="booking-progress"><i /></div></div>
-          <div className="booking-service-title">Explore services</div>
-          <div className="booking-tiles"><span>✦<small>Cleaning</small></span><span>⌂<small>Repairs</small></span><span>◌<small>Wellness</small></span></div>
-          <div className="phone-tabs">⌂　⌕　▦　◉</div>
-        </div>
-        <span className="concept-stamp">CONCEPT PROJECT</span>
       </div>
     )
   }

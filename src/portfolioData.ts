@@ -16,7 +16,7 @@ export type Project = {
   role: string
   technologies: string[]
   concept?: boolean
-  visual: 'marketplace' | 'tracking' | 'website' | 'booking'
+  visual: 'marketplace' | 'tracking' | 'website' | 'restaurant' | 'cafe' | 'pet-store'
   highlights: string[]
 }
 
@@ -119,37 +119,54 @@ export const projects: Project[] = [
   },
   {
     number: '03',
-    name: 'Local business',
+    name: 'morrow & thyme',
     category: 'Website design & development',
     description:
-      'A conversion-focused website concept for a local service business, with clear services and a simple inquiry journey.',
+      'A restaurant website concept showcasing the menu, atmosphere, and an easy path to reserve a table.',
     role:
-      'Concept project exploring responsive layout, service presentation, and a contact flow.',
+      'Concept project exploring responsive restaurant branding, menu presentation, and a reservation journey.',
     technologies: ['React', 'TypeScript', 'Responsive UI'],
-    concept: true,
-    visual: 'website',
+    visual: 'restaurant',
     highlights: [
-      'Responsive landing page for a local service business.',
-      'Clear service presentation and calls to action.',
-      'Contact and inquiry flow designed for prospective customers.',
+      'Responsive restaurant homepage with clear location and opening details.',
+      'Menu highlights designed to make signature dishes easy to explore.',
+      'Reservation call to action for a smoother guest journey.',
       'This is a concept project, not commissioned client work.',
     ],
   },
   {
     number: '04',
-    name: 'Service booking',
-    category: 'Mobile product design',
+    name: 'MATCHAO™',
+    category: 'Coffee shop website',
     description:
-      'A mobile app concept that brings service discovery, bookings, and account details into one simple experience.',
+      'A coffee shop website concept built around a warm brand, featured drinks, and visiting the neighborhood cafe.',
     role:
-      'Concept project exploring the core experience for a service-business application.',
-    technologies: ['Flutter', 'Product UI', 'Firebase concept'],
-    concept: true,
-    visual: 'booking',
+      'Concept project exploring responsive cafe branding, product storytelling, and clear visit information.',
+    technologies: ['React', 'TypeScript', 'Responsive UI'],
+    concept: false,
+    visual: 'cafe',
     highlights: [
-      'Service listings and a straightforward booking flow.',
-      'User account and appointment overview.',
-      'A simple dashboard concept for a service business.',
+      'Warm, responsive layout for a neighborhood coffee shop.',
+      'Featured drinks and product highlights.',
+      'Prominent location and opening hours for visitors.',
+      'This is a concept project, not commissioned client work.',
+    ],
+  },
+  {
+    number: '05',
+    name: 'Paw & Co.',
+    category: 'Pet store website',
+    description:
+      'A friendly pet store website concept for browsing everyday essentials, discovering top picks, and finding store details.',
+    role:
+      'Concept project exploring an approachable pet retail experience with product discovery and responsive layouts.',
+    technologies: ['React', 'TypeScript', 'Responsive UI'],
+    concept: false,
+    visual: 'pet-store',
+    highlights: [
+      'Friendly responsive storefront concept for pet owners.',
+      'Featured product categories and popular essentials.',
+      'Clear store information and shopping calls to action.',
       'This is a concept project, not commissioned client work.',
     ],
   },
